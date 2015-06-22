@@ -46,6 +46,11 @@ class info-display {
 		group => root,
 	}
 
+	file { '/etc/timezone':
+	    ensure => present,
+	    content => "Europe/London\n",
+	}
+
 	vcsrepo { "/home/pi/studio-screen":
 		ensure => latest,
 		provider => git,
