@@ -1,3 +1,3 @@
 node 'studioa-pi' {
-	include info-display
+	include studioa-pi
 }
