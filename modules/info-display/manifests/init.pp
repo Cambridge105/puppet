@@ -19,9 +19,16 @@ class info-display {
 	package { 'python':
 		ensure => latest,
 	}
-	
+
 	service { 'ssh':
 		enable => true,
 		ensure => running,
+	}
+
+	file { '/etc/xdg/lxsession/LXDE-pi/autostart':
+		source => 'puppet:///modules/info-display/autostart',
+		ensure => present,
+		owner => root,
+		group => root,
 	}
 }
