@@ -60,6 +60,14 @@ class info-display {
 		revision => 'master',
 	}
 
+	ini_setting { "xserver-command":
+		ensure => present,
+		path => "/etc/lightdm/lightdm.conf",
+		section => "SeatDefaults",
+		setting => "xserver-command",
+		value => "X -s 0 dpms",
+	}
+
 	cron { 'update-schedule':
 		command => 'wget -O /home/pi/studio-screen/schedule.js http://cambridge105.fm/schedule_info/get_schedule_entries_min.php',
 		user => 'pi',
