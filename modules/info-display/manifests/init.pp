@@ -28,7 +28,7 @@ class info-display {
 		ensure => latest,
 	}
 
-	package { 'web':
+	package { 'web.py':
 		provider => pip,
 		require => Package['python-pip'],
 		ensure => latest,
