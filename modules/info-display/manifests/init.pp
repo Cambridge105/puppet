@@ -50,6 +50,10 @@ class info-display {
 	    ensure => present,
 	    content => "Europe/London\n",
 	}
+	file { '/etc/localtime':
+		ensure => "link",
+		target => "/usr/share/zoneinfo/Europe/London",
+	}
 
 	vcsrepo { "/home/pi/studio-screen":
 		ensure => latest,
