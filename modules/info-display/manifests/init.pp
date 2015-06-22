@@ -44,4 +44,12 @@ class info-display {
 		user => 'pi',
 		revision => 'master',
 	}
+
+	cron { 'update-schedule':
+		command => 'wget -O /home/pi/studio-screen/schedule.js http://cambridge105.fm/schedule_info/get_schedule_entries_min.php',
+		user => 'pi',
+		ensure => present,
+		hour => [0, 12, 21],
+		minute => [15],
+	}
 }
