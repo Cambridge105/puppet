@@ -1,3 +1,3 @@
 node 'studioa-pi' {
-	include studioa-pi
+	include role-studioa-pi
 }

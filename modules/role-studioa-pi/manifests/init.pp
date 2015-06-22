@@ -1,4 +1,4 @@
-class studioa-pi {
+class role-studioa-pi {
 	require info-display
 
 	cron { 'pollmiclive':
