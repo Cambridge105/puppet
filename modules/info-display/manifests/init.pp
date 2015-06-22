@@ -24,6 +24,16 @@ class info-display {
 		ensure => latest,
 	}
 
+	package { 'python-pip':
+		ensure => latest,
+	}
+
+	package { 'web':
+		provider => pip,
+		require => Package['python-pip'],
+		ensure => latest,
+	}
+
 	service { 'ssh':
 		enable => true,
 		ensure => running,
