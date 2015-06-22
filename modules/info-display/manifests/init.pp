@@ -19,4 +19,9 @@ class info-display {
 	package { 'python':
 		ensure => latest,
 	}
+	
+	service { 'ssh':
+		enable => true,
+		ensure => running,
+	}
 }
