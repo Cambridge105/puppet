@@ -11,6 +11,10 @@ class info-display {
 		ensure => latest,
 	}
 
+	package { 'git':
+		ensure => latest,
+	}
+
 	service {'ntp':
 		ensure => running,
 		require => Package['ntp'],
@@ -30,5 +34,14 @@ class info-display {
 		ensure => present,
 		owner => root,
 		group => root,
+	}
+
+	vcsrepo { "/home/pi/studio-screen":
+		ensure => latest,
+		provider => git,
+		source => 'https://github.com/Cambridge105/studio-screen.git',
+		require => [ Package['git'] ],
+		user => 'pi',
+		revision => 'master',
 	}
 }
