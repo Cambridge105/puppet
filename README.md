@@ -8,7 +8,7 @@ Assumptions:
 - pi user's password changed to something sensible
 - Repos required are public. If we want to clone private repos, we'll have to set up a puppet master and hiera with eyaml support.
 
-Clone this repo, and run setup.sh from this folder. It should download the latest puppet 3.x agent, a few required modules, and run it.
+Clone this repo, and run `bash setup.sh` from this folder. It should download the latest puppet 3.x agent, a few required modules, and run it.
 
 To apply updates, run (from this directory):
 
