@@ -3,6 +3,7 @@ Cambridge 105 Puppet Config
 
 Assumptions:
 - Hostname already set (in /etc/hostname, and rebooted)
+- Pi set to boot into graphical UI as Pi user (set in raspi-config or at first run)
 - This repo cloned somewhere local (until I get around to setting up a puppet master)
 - pi user's password changed to something sensible
 - Repos required are public. If we want to clone private repos, we'll have to set up a puppet master and hiera with eyaml support.
