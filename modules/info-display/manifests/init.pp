@@ -46,6 +46,13 @@ class info-display {
 		group => root,
 	}
 
+	file { '/home/pi/.config/lxsession/LXDE/autostart':
+		source => 'puppet:///modules/info-display/autostart',
+		ensure => present,
+		owner => pi,
+		group => pi,
+	}
+
 	file { '/etc/timezone':
 	    ensure => present,
 	    content => "Europe/London\n",
