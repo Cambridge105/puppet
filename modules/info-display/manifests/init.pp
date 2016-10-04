@@ -31,7 +31,7 @@ class info-display {
 	package { 'web.py':
 		provider => pip,
 		require => Package['python-pip'],
-		ensure => latest,
+		ensure => installed,
 	}
 
 	service { 'ssh':
