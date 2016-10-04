@@ -46,6 +46,12 @@ class info-display {
 		group => root,
 	}
 
+	file { '/home/pi/.config/lxsession/LXDE':
+		ensure => directory,
+		owner => pi,
+		group => pi,
+	}
+	->
 	file { '/home/pi/.config/lxsession/LXDE/autostart':
 		source => 'puppet:///modules/info-display/autostart',
 		ensure => present,
