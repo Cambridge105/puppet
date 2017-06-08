@@ -17,11 +17,16 @@ class role_rivendell_client {
   }
 
   exec { 'Unzip Rivendell source':
-    creates
+    creates => '/rdbuild/configure',
+    command => '/bin/tar xzf /rdbuild/rivendell-2.16.0.tar.gz',
+    cwd => '/rdbuild',
+    require => File['/rdbuild/rivendell-2.16.0.tar.gz'],
   }
+
   exec { 'Configure Rivendell':
     command => './configure',
     cwd => '/rdbuild',
-    path => $::path
+    path => $::path,
+    require => exec['Unzip Rivendell source'],
   }
 }
