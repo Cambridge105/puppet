@@ -25,7 +25,7 @@ class role_rivendell_client {
 
   exec { 'Configure Rivendell':
     command => './configure',
-    cwd => '/rdbuild',
+    cwd => '/rdbuild/rivendell-2.16.0',
     path => $::path,
     require => Exec['Unzip Rivendell source'],
   }
