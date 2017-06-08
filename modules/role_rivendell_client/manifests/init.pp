@@ -2,7 +2,7 @@ class role_rivendell_client {
   package { 'git':
     ensure => latest,
   }
-  package { 'curl':
+  package { 'wget':
     ensure => latest,
   }
 
@@ -12,10 +12,13 @@ class role_rivendell_client {
 
   exec { 'Download Rivendell source':
     creates => '/rdbuild/rivendell-2.16.0.tar.gz',
-    command => '/usr/bin/curl https://github.com/ElvishArtisan/rivendell/archive/v2.16.0.tar.gz > /rdbuild/rivendell-2.16.0.tar.gz',
+    command => '/usr/bin/wget https://github.com/ElvishArtisan/rivendell/archive/v2.16.0.tar.gz -O /rdbuild/rivendell-2.16.0.tar.gz',
     require => File['/rdbuild'],
   }
 
+  exec { 'Unzip Rivendell source':
+    creates
+  }
   exec { 'Configure Rivendell':
     command => './configure',
     cwd => '/rdbuild',
