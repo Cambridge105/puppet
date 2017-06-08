@@ -20,7 +20,7 @@ class role_rivendell_client {
     creates => '/rdbuild/configure',
     command => '/bin/tar xzf /rdbuild/rivendell-2.16.0.tar.gz',
     cwd => '/rdbuild',
-    require => File['/rdbuild/rivendell-2.16.0.tar.gz'],
+    require => Exec['Download Rivendell source'],
   }
 
   exec { 'Configure Rivendell':
