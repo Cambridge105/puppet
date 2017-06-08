@@ -1,13 +1,5 @@
 class role_rivendell_client {
-  package { 'git':
-    ensure => latest,
-  }
-  package { 'wget':
-    ensure => latest,
-  }
-  package { 'vim':
-    ensure => latest,
-  }
+  require ::role_rivendell_client::packages
 
   file { '/rdbuild':
     ensure => directory,
