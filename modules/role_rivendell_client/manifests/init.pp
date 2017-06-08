@@ -5,6 +5,9 @@ class role_rivendell_client {
   package { 'wget':
     ensure => latest,
   }
+  package { 'vim':
+    ensure => latest,
+  }
 
   file { '/rdbuild':
     ensure => directory,
