@@ -19,5 +19,6 @@ class role_rivendell_client {
   exec { 'Configure Rivendell':
     command => './configure',
     cwd => '/rdbuild',
+    path => $::path
   }
 }
