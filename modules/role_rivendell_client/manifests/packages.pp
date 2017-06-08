@@ -14,4 +14,10 @@ class role_rivendell_client::packages {
   package {'build-essential':
     ensure => latest,
   }
+  package {'libtool':
+    ensure => latest,
+  }
+  package { 'libqt4-dev':
+    ensure => latest,
+  }
 }
