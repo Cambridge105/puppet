@@ -11,4 +11,7 @@ class role_rivendell_client::packages {
   package {'autoconf':
     ensure => latest,
   }
+  package {'build-essential':
+    ensure => latest,
+  }
 }
