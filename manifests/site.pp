@@ -5,5 +5,5 @@ node 'greenroom-pi' {
 	include role-greenroom-pi
 }
 node 'rmc-rdell1' {
-  include role-rivendell-client
+  include role_rivendell_client
 }
