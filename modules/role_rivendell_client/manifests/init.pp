@@ -36,8 +36,8 @@ class role_rivendell_client {
     path => $::path,
     require => Exec['Configure Rivendell'],
     creates => '/rdbuild/rivendell/rdairplay/rdairplay',
-    environment => {
-      DOCBOOK_STYLESHEETS => '/usr/share/xml/docbook/stylesheet/docbook-xsl',
-    },
+    environment => [
+      "DOCBOOK_STYLESHEETS='/usr/share/xml/docbook/stylesheet/docbook-xsl'"
+    ],
   }
 }
