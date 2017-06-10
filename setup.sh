@@ -5,4 +5,4 @@ sudo apt-get update
 sudo apt-get install puppet-agent
 sudo /opt/puppetlabs/bin/puppet module install puppetlabs-vcsrepo
 sudo /opt/puppetlabs/bin/puppet module install puppetlabs-inifile
-sudo /opt/puppetlabs/bin/puppet apply manifests/site.pp --modulepath=modules/:/etc/puppet/modules/
+sudo /opt/puppetlabs/bin/puppet apply manifests/site.pp --modulepath=modules/:/etc/puppet/modules/:/etc/puppetlabs/code/environments/production/modules/
