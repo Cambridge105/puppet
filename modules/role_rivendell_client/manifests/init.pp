@@ -20,7 +20,7 @@ class role_rivendell_client {
     path => $::path,
     require => Vcsrepo['/rdbuild/rivendell'],
     creates => '/rdbuild/rivendell/configure',
-    log_output => true,
+    logoutput => true,
   }
 
   exec { 'Configure Rivendell':
@@ -29,7 +29,7 @@ class role_rivendell_client {
     path => $::path,
     require => Exec['Autogen Rivendell'],
     creates => '/rdbuild/rivendell/Makefile',
-    log_output => true,
+    logoutput => true,
   }
 
   exec { 'Build Rivendell':
@@ -41,6 +41,6 @@ class role_rivendell_client {
     environment => [
       "DOCBOOK_STYLESHEETS='/usr/share/xml/docbook/stylesheet/docbook-xsl'"
     ],
-    log_output => true,
+    logoutput => true,
   }
 }
