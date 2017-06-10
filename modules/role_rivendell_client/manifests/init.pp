@@ -42,5 +42,6 @@ class role_rivendell_client {
       "DOCBOOK_STYLESHEETS='/usr/share/xml/docbook/stylesheet/docbook-xsl'"
     ],
     logoutput => true,
+    timeout => 1200, # It takes a while to build...
   }
 }
