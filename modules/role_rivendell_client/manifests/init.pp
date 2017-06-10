@@ -15,7 +15,7 @@ class role_rivendell_client {
   }
 
   exec { 'Autogen Rivendell':
-    command => './autogen.sh',
+    command => '/bin/bash autogen.sh',
     cwd => '/rdbuild/rivendell',
     path => $::path,
     require => Vcsrepo['/rdbuild/rivendell'],
@@ -24,7 +24,7 @@ class role_rivendell_client {
   }
 
   exec { 'Configure Rivendell':
-    command => './configure',
+    command => '/bin/bash configure',
     cwd => '/rdbuild/rivendell',
     path => $::path,
     require => Exec['Autogen Rivendell'],
