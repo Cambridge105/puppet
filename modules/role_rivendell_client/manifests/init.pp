@@ -5,23 +5,39 @@ class role_rivendell_client {
     ensure => directory,
   }
 
-  exec { 'Download Rivendell source':
-    creates => '/rdbuild/rivendell-2.16.0.tar.gz',
-    command => '/usr/bin/wget https://github.com/ElvishArtisan/rivendell/archive/v2.16.0.tar.gz -O /rdbuild/rivendell-2.16.0.tar.gz',
-    require => File['/rdbuild'],
+  vcsrepo { "/rdbuild/rivendell":
+    ensure => present,
+    provider => git,
+    source => 'https://github.com/ElvishArtisan/rivendell.git',
+    require => [ Package['git'], File['/rdbuild'] ],
+    user => 'root',
+    revision => 'master',
   }
 
-  exec { 'Unzip Rivendell source':
-    creates => '/rdbuild/configure',
-    command => '/bin/tar xzf /rdbuild/rivendell-2.16.0.tar.gz',
-    cwd => '/rdbuild',
-    require => Exec['Download Rivendell source'],
+  exec { 'Autogen Rivendell':
+    command => './autogen.sh',
+    cwd => '/rdbuild/rivendell',
+    path => $::path,
+    require => Vcsrepo['/rdbuild/rivendell'],
+    creates => '/rdbuild/rivendell/configure',
   }
 
   exec { 'Configure Rivendell':
     command => './configure',
-    cwd => '/rdbuild/rivendell-2.16.0',
+    cwd => '/rdbuild/rivendell',
     path => $::path,
     require => Exec['Unzip Rivendell source'],
+    creates => '/rdbuild/rivendell/Makefile',
+  }
+
+  exec { 'Build Rivendell':
+    command => 'make',
+    cwd => '/rdbuild/rivendell',
+    path => $::path,
+    require => Exec['Configure Rivendell'],
+    creates => '/rdbuild/rivendell/rdairplay/rdairplay',
+    environment => {
+      DOCBOOK_STYLESHEETS => '/usr/share/xml/docbook/stylesheet/docbook-xsl',
+    },
   }
 }
