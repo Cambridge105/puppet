@@ -26,7 +26,7 @@ class role_rivendell_client {
     command => './configure',
     cwd => '/rdbuild/rivendell',
     path => $::path,
-    require => Exec['Unzip Rivendell source'],
+    require => Exec['Autogen Rivendell'],
     creates => '/rdbuild/rivendell/Makefile',
   }
 
