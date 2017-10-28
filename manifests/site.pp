@@ -1,6 +1,9 @@
 node 'studioa-pi' {
 	include role-studioa-pi
 }
+node 'studiob-pi' {
+	include role-studiob-pi
+}
 node 'greenroom-pi' {
 	include role-greenroom-pi
 }

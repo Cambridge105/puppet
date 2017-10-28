@@ -39,25 +39,12 @@ class info-display {
 		ensure => running,
 	}
 
-	file { '/etc/xdg/lxsession/LXDE-pi/autostart':
-		source => 'puppet:///modules/info-display/autostart',
-		ensure => present,
-		owner => root,
-		group => root,
-	}
-
 	file { '/home/pi/.config/lxsession/LXDE':
 		ensure => directory,
 		owner => pi,
 		group => pi,
 	}
 	->
-	file { '/home/pi/.config/lxsession/LXDE/autostart':
-		source => 'puppet:///modules/info-display/autostart',
-		ensure => present,
-		owner => pi,
-		group => pi,
-	}
 
 	file { '/etc/timezone':
 	    ensure => present,
