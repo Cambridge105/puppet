@@ -33,6 +33,9 @@ class role_rivendell_client::packages {
   package {'libtool':
     ensure => installed,
   }
+  package {'libtool-bin':
+    ensure => installed,
+  }
   package { 'libqt4-dev':
     ensure => installed,
   }
