@@ -81,4 +81,13 @@ class role_rivendell_client::packages {
   package { 'fop':
     ensure => installed,
   }
+  package { 'libexpat-dev':
+    ensure => installed,
+  }
+  package { 'libssl-dev':
+    ensure => installed,
+  }
+  package { 'libtag1-dev':
+    ensure => installed,
+  }
 }
