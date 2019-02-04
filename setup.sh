@@ -19,6 +19,7 @@ if (grep -q -i arm /proc/cpuinfo); then
 	ruby install.rb || exit 1
 else
 	# Use the official builds of the agent for x86 / x64
+	RELEASE_NAME= `lsb_release -c -s`
 	wget https://apt.puppetlabs.com/puppet5-release-${RELEASE_NAME}.deb || exit 1
     dpkg -i puppet5-release-${RELEASE_NAME}.deb || exit 1
     apt-get update || exit 1
