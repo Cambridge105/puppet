@@ -11,7 +11,7 @@ class role_rivendell_client {
     source => 'https://github.com/ElvishArtisan/rivendell.git',
     require => [ Package['git'], File['/rdbuild'] ],
     user => 'root',
-    revision => 'master',
+    revision => 'stable',
   }
 
   exec { 'Autogen Rivendell':
