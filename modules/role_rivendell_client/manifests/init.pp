@@ -24,7 +24,7 @@ class role_rivendell_client {
   }
 
   exec { 'Configure Rivendell':
-    command => '/bin/bash configure',
+    command => '/bin/bash configure --disable-docbook',
     cwd => '/rdbuild/rivendell',
     path => $::path,
     require => Exec['Autogen Rivendell'],
