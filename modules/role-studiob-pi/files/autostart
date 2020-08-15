@@ -1,7 +1,0 @@
-@lxpanel --profile LXDE-pi
-@pcmanfm --desktop --profile LXDE-pi
-@xscreensaver -no-splash
-@xset s off
-@xset -dpms
-@xset s noblank
-@iceweasel -url file:///home/pi/studio-screen/index.html?studio=b
