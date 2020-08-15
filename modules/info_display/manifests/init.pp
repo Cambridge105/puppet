@@ -67,7 +67,7 @@ class info_display {
   }
 
   nginx::resource::server { 'localhost':
-    server_name    => 'localhost',
+    server_name    => ['localhost'],
     listen_options => 'default_server',
     www_root       => '/home/pi/studio-screen',
   }
