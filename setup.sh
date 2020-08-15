@@ -39,6 +39,7 @@ puppet module install puppetlabs-zone_core --target-dir /opt/puppetlabs/puppet/v
 # Extra modules we require...
 puppet module install puppetlabs-vcsrepo
 puppet module install puppetlabs-inifile
+puppet module install puppet-nginx
 
 # And finally, the first puppet run!
 puppet apply manifests/site.pp --modulepath=modules/:/etc/puppet/modules/:/etc/puppetlabs/code/environments/production/modules/
