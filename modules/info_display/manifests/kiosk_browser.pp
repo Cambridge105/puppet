@@ -1,5 +1,6 @@
 class info_display::kiosk_browser(
-  String $url = 'http://localhost/'
+  String $url = 'http://localhost/',
+  String $scale_factor = '1', # Smaller number = zoom out
   ) {
 
   $autostart_file = "@lxpanel --profile LXDE-pi
@@ -8,7 +9,7 @@ class info_display::kiosk_browser(
 @xset s off
 @xset -dpms
 @xset s noblank
-@chromium -url ${url} --start-fullscreen --kiosk --incognito --disable-infobars
+@chromium -url ${url} --start-fullscreen --kiosk --incognito --disable-infobars --force-device-scale-factor=${scale_factor}
 "
   file { '/etc/xdg/lxsession/LXDE-pi/autostart':
     ensure  => present,

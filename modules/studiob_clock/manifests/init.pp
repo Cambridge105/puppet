@@ -1,7 +1,8 @@
 class studiob_clock {
   require info_display
   class { 'info_display::kiosk_browser':
-    url => 'http://localhost/index.html?studio=b',
+    url          => 'http://localhost/index.html?studio=b',
+    scale_factor => '0.6',
   }
 
   # HDMI configuration for Studio B's LCD display embedded in the mixing desk front panel
