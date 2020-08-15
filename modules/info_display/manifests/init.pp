@@ -29,7 +29,7 @@ class info_display {
   }
 
   package { 'web.py':
-    ensure   => present,
+    ensure   => '0.51', # Last supported version for Python 2
     provider => pip,
     require  => Package['python-pip'],
   }
