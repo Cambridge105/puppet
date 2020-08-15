@@ -42,4 +42,4 @@ puppet module install puppetlabs-inifile
 puppet module install puppet-nginx
 
 # And finally, the first puppet run!
-puppet apply manifests/site.pp --modulepath=modules/:/etc/puppet/modules/:/etc/puppetlabs/code/environments/production/modules/
+puppet apply manifests/site.pp --modulepath=modules/:/etc/puppetlabs/code/modules/:/etc/puppetlabs/code/environments/production/modules/
