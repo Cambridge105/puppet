@@ -1,5 +1,12 @@
 #!/bin/bash
-# Use the official builds of the agent for x86 / x64
+# Make sure we have a sensible hostname
+if [ -z "$NEWHOSTNAME" ]; then
+    read -p "Enter a hostname for this machine: " NEWHOSTNAME
+fi
+echo "Using new hostname from NEWHOSTNAME: $NEWHOSTNAME"
+hostname $NEWHOSTNAME
+echo $NEWHOSTNAME > /etc/hostname
+
 RELEASE_NAME=`lsb_release -c -s`
 wget https://apt.puppetlabs.com/puppet6-release-${RELEASE_NAME}.deb || exit 1
 dpkg -i puppet6-release-${RELEASE_NAME}.deb || exit 1
