@@ -20,18 +20,18 @@ class info_display {
     require => Package['ntp'],
   }
 
-  package { 'python':
+  package { 'python3':
     ensure => present,
   }
 
-  package { 'python-pip':
+  package { 'python3-pip':
     ensure => present,
   }
 
   package { 'web.py':
-    ensure   => '0.51', # Last supported version for Python 2
-    provider => pip,
-    require  => Package['python-pip'],
+    ensure   => present,
+    provider => pip3,
+    require  => Package['python3-pip'],
   }
 
   service { 'ssh':
