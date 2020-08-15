@@ -62,6 +62,16 @@ class info_display {
     revision => 'master',
   }
 
+  class { 'nginx':
+    server_purge => true,
+  }
+
+  nginx::resource::server { 'localhost':
+    server_name    => 'localhost',
+    listen_options => 'default_server',
+    www_root       => '/home/pi/studio-screen',
+  }
+
   ini_setting { 'xserver-command':
     ensure  => present,
     path    => '/etc/lightdm/lightdm.conf',
