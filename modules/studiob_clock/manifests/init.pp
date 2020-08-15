@@ -5,6 +5,8 @@ class studiob_clock {
     scale_factor => '0.6',
   }
 
+  include camera_server
+
   # HDMI configuration for Studio B's LCD display embedded in the mixing desk front panel
 
   file_line {'HDMI hotplug':
