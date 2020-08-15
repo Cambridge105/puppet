@@ -9,6 +9,7 @@ class info_display::kiosk_browser(
 @xset s off
 @xset -dpms
 @xset s noblank
+@unclutter -idle 0
 @chromium -url ${url} --start-fullscreen --kiosk --incognito --disable-infobars --force-device-scale-factor=${scale_factor}
 "
   file { '/etc/xdg/lxsession/LXDE-pi/autostart':

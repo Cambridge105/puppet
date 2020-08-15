@@ -34,6 +34,10 @@ class info_display {
     require  => Package['python3-pip'],
   }
 
+  package { 'unclutter':
+    ensure => installed,
+  }
+
   service { 'ssh':
     ensure => running,
     enable => true,
