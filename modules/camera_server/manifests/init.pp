@@ -31,9 +31,10 @@ WantedBy=multi-user.target
 ',
   }
 
-  service { 'camera_server':
-    ensure  => running,
-    enable  => true,
-    require => File['/etc/systemd/system/camera_server.service'],
+  service { 'camera_server.service':
+    ensure   => running,
+    enable   => true,
+    require  => File['/etc/systemd/system/camera_server.service'],
+    provider => systemd,
   }
 }
