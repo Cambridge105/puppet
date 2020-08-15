@@ -4,6 +4,8 @@ class studiob_clock {
     url => 'http://localhost/index.html?studio=b',
   }
 
+  # HDMI configuration for Studio B's LCD display embedded in the mixing desk front panel
+
   file_line {'HDMI hotplug':
     line  => 'hdmi_force_hotplug=1',
     path  => '/boot/config.txt',
