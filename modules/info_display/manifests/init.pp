@@ -39,11 +39,6 @@ class info_display {
     enable => true,
   }
 
-  file { '/home/pi/.config/lxsession/LXDE-pi':
-    ensure => directory,
-    owner  => 'pi',
-    group  => 'pi',
-  }
   file { '/etc/timezone':
     ensure  => present,
     content => "Europe/London\n",

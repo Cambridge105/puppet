@@ -17,11 +17,22 @@ class info_display::kiosk_browser(
     group   => 'root',
   }
 
-  file { '/home/pi/.config/lxsession/LXDE/autostart':
+  file { '/home/pi/.config/lxsession':
+    ensure => directory,
+    owner  => 'pi',
+    group  => 'pi',
+  }
+  file { '/home/pi/.config/lxsession/LXDE-pi':
+    ensure  => directory,
+    owner   => 'pi',
+    group   => 'pi',
+    require => File['/home/pi/.config/lxsession'],
+  }
+  file { '/home/pi/.config/lxsession/LXDE-pi/autostart':
     ensure  => present,
     content => $autostart_file,
     owner   => 'pi',
     group   => 'pi',
+    require => File['/home/pi/.config/lxsession/LXDE-pi'],
   }
-
 }
