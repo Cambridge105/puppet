@@ -60,6 +60,23 @@ class info_display {
   class { 'nginx':
     server_purge => true,
   }
+  # WORKAROUND: https://github.com/voxpupuli/puppet-nginx/issues/1372#issuecomment-611736052
+  #
+  # This implements Workaround 1 for nginx failing to start on boot because /run/nginx
+  # doesn't exist. Once that issue has been resolved, we should remove this
+  file { '/etc/systemd/system/nginx.service.d':
+    ensure => directory,
+  }
+  file { '/etc/systemd/system/nginx.service.d/runtime.conf':
+    ensure  => present,
+    content => "[Service]
+RuntimeDirectory=nginx
+",
+  }
+  # WORKAROUND 2: Make sure puppet keeps the file mode to 0700 for /run/nginx
+  File <| title == '/run/nginx/client_body_temp' or title == '/run/nginx/proxy_temp' |> {
+    mode => '0700',
+  }
 
   nginx::resource::server { 'localhost':
     server_name    => ['localhost'],
