@@ -8,7 +8,7 @@ class info_display::kiosk_browser(
 @xset s off
 @xset -dpms
 @xset s noblank
-@chromium-browser -url ${url} --start-fullscreen --kiosk --incognito --disable-infobars
+@chromium -url ${url} --start-fullscreen --kiosk --incognito --disable-infobars
 "
   file { '/etc/xdg/lxsession/LXDE-pi/autostart':
     ensure  => present,
